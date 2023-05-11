@@ -1,0 +1,272 @@
+/* /////////google fonts/////////// */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@400;500;600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap");
+/* ///////////////////////////////// */
+
+:root {
+  /* ============color============= */
+  --first-c: hsl(271, 76%, 53%);
+  --title-c: hsl(0, 0%, 40%);
+  --text-c: hsl(0, 0%, 50%);
+  --body-c: hsl(0, 0%, 100%);
+  --container-c: hsl(0, 0%, 93%);
+  --border-c: hsl(0, 0%, 87%);
+  --text-w: #fff;
+
+  /* ============fonts============= */
+  --body-font: "Open Sans", sans-serif;
+  --second-font: "Poppins", sans-serif;
+
+  --big-font-size: 56px;
+  --h1-font-size: 50px;
+  --h1-font-size-2: 35px;
+  --h2-font-size: 32px;
+  --h3-font-size: 24px;
+  --large-font-size: 18px;
+  --normal-font-size: 16px;
+  --small-font-size: 15px;
+  --smaller-font-size: 14px;
+  --tiny-font-size: 12px;
+
+  /* ============fonts weight============= */
+  --weight-400: 400;
+  --weight-500: 500;
+  --weight-600: 600;
+  --weight-700: 700;
+  --weight-800: 800;
+}
+
+.dark-theme {
+  --title-c: hsl(0, 0%, 100%);
+  --text-c: hsl(0, 0%, 80%);
+  --body-c: hsl(0, 0%, 7%);
+  --container-c: hsl(0, 1%, 17%);
+  --border-c: hsl(0, 0%, 15%);
+}
+
+/* /////////base/////////// */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body,
+input,
+textarea {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  font-weight: var(--weight-500);
+}
+
+body {
+  background: var(--body-c);
+  color: var(--text-c);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--title-c);
+  font-family: var(--second-font);
+  font-weight: var(--weight-700);
+}
+
+#root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* /////////reusable css/////////// */
+.container {
+  max-width: 1140px;
+  margin-inline: auto;
+  padding-inline: 15px;
+}
+
+.grid {
+  display: grid;
+  gap: 30px;
+}
+
+.section {
+  padding-block: 70px;
+}
+
+.section_title {
+  font-size: var(--big-font-size);
+  font-weight: var(--weight-800);
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.section_title span {
+  color: var(--first-c);
+}
+
+.button {
+  display: inline-block;
+  color: var(--title-c);
+  border: 1px solid var(--first-c);
+  padding: 15px 70px 15px 35px;
+  font-family: var(--second-font);
+  font-size: var(--small-font-size);
+  font-weight: var(--weight-500);
+  position: relative;
+  border-radius: 35px;
+  overflow: hidden;
+  transition: all 0.25s ease-in-out;
+}
+
+.button:hover {
+  color: var(--text-w);
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--first-c);
+  transform: translateX(100%);
+  z-index: -1;
+  transition: all 0.3s ease-in-out;
+}
+
+.button:hover::before {
+  transform: translateX(0);
+}
+
+.button_icon {
+  background: var(--first-c);
+  position: absolute;
+  inset-block: -2px;
+  right: 0;
+  width: 55px;
+  border-radius: 50%;
+  color: var(--text-w);
+  font-size: var(--large-font-size);
+  text-align: center;
+  line-height: 60px;
+}
+
+/* ==========================All media screen============================= */
+
+@media screen and (max-width: 1025px) {
+  .section.home.section.grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .home_img {
+    height: 500px;
+    width: 500px;
+  }
+  .color_back {
+    display: none;
+  }
+  .about_container {
+    grid-template-columns: 1fr !important;
+    padding-inline: 5rem;
+  }
+  .stats_box {
+    width: fit-content;
+  }
+  .skills_container {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+  .protfolio_container {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .section {
+    overflow-x: hidden;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .section.home.section.grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+    overflow-x: hidden;
+    flex-wrap: wrap;
+  }
+  .home {
+    padding: 50px;
+  }
+  .home_img {
+    height: 40% !important;
+  }
+  .color_back {
+    display: none;
+  }
+  .about_container,
+  .info_list,
+  .stats {
+    grid-template-columns: 1fr !important;
+  }
+  .stats_box {
+    width: fit-content;
+  }
+  .skills_container {
+    grid-template-columns: 1fr !important;
+  }
+  .protfolio_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .home_title {
+    font-size: var(--h4-font-size) !important ;
+    line-height: 1.24 !important;
+    padding-left: 50px !important;
+  }
+  .home_title::before {
+    width: 30px !important;
+  }
+  .home_description {
+    line-height: 1;
+    margin: 8px 16px;
+    font-size: var(--small-font-size);
+  }
+  .home_data {
+    width: 270px !important;
+  }
+  .section {
+    overflow-x: hidden;
+  }
+  .about_container {
+    padding: 3rem;
+  }
+  .section_title {
+    font-size: var(--h2-font-size);
+    margin-bottom: 50px;
+  }
+}

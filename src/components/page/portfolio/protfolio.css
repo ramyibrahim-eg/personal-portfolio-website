@@ -1,0 +1,120 @@
+.protfolio_container {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.protfolio_item {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.protfolio_img {
+  width: 22rem;
+  object-fit: cover;
+  border-radius: 10px;
+  vertical-align: middle;
+}
+
+.protfolio_hover {
+  background: var(--first-c);
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  top: 100%;
+  transition: all 0.5s ease-in-out;
+}
+
+.protfolio_item:hover .protfolio_hover {
+  top: 0;
+}
+
+.protfolio_title {
+  background: var(--first-c);
+  color: var(--text-w);
+  font-size: var(--large-font-size);
+  font-weight: var(--weight-500);
+  transform: translateY(-40px);
+  transition: all 0.5s ease-in-out;
+  width: 100%;
+  text-align: center;
+  padding: 5px 0 10px 0;
+}
+
+.protfolio_item:hover .protfolio_title {
+  transform: translateY(0);
+}
+
+.protfolio_modal {
+  position: fixed;
+  inset: 0;
+  background: hsla(0, 0%, 0%, 0.7);
+  z-index: 999;
+  display: grid;
+  place-items: center;
+  padding: 15px;
+  cursor: default;
+}
+
+.protfolio_modal_content {
+  background: var(--container-c);
+  max-width: 500px;
+  width: 100%;
+  padding: 32px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.modal_close {
+  font-size: 50px;
+  position: absolute;
+  top: -5%;
+  right: -7%;
+  color: var(--text-w);
+  cursor: pointer;
+}
+
+.modal_img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.modal_title {
+  text-align: center;
+  color: var(--first-c);
+  font-size: var(--h2-font-size);
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+}
+
+.modal_list {
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 10px;
+  margin-bottom: 24px;
+}
+
+.modal_item {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.item_icon {
+  display: flex;
+}
+
+.item_title,
+.item_details {
+  color: var(--title-c);
+  font-size: var(--small-font-size);
+}
+
+.item_details {
+  font-weight: var(--weight-600);
+}
+
+a.item_details {
+  color: var(--first-c);
+}

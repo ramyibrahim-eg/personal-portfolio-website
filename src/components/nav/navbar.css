@@ -1,0 +1,131 @@
+.nav_menu {
+  background: var(--container-c);
+  position: fixed;
+  inset-block: 0;
+  left: -100%;
+  width: 100%;
+  padding: 60px 30px;
+  transition: all 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  z-index: 99;
+}
+
+.show_menu {
+  left: 0;
+}
+
+.nav_link {
+  display: flex;
+  align-items: center;
+  column-gap: 24px;
+  border-bottom: 1px solid var(--border-c);
+  padding-block: 14px;
+}
+
+.nav_name,
+.nav_icon {
+  color: var(--title-c);
+  font-size: 24px;
+}
+
+.nav_name {
+  font-weight: var(--weight-500);
+}
+
+.active_nav .nav_icon,
+.active_nav .nav_name {
+  color: var(--first-c);
+}
+
+.nav_toggle {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  background: var(--container-c);
+  padding: 12px 10px;
+  z-index: 999;
+}
+
+.nav_toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--title-c);
+  margin-bottom: 5px;
+}
+
+.animate_toggle span:first-child {
+  transform: rotate(45deg) translate(6px, 4px);
+}
+.animate_toggle span:nth-child(2) {
+  display: none;
+}
+.animate_toggle span:last-child {
+  transform: rotate(-45deg) translate(1px, 1px);
+}
+
+@media screen and (min-width: 1024px) {
+  .nav_menu {
+    all: unset;
+  }
+  .nav_toggle {
+    display: none;
+  }
+  .nav {
+    position: fixed;
+    inset-block: 0;
+    right: 30px;
+    display: flex;
+    align-items: center;
+  }
+  .nav_item {
+    margin-block: 20px;
+  }
+  .nav_link {
+    padding: 0;
+    border-bottom: none;
+    background: var(--container-c);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: relative;
+  }
+  .nav_icon {
+    font-size: 20px;
+    margin-inline: auto;
+  }
+  .nav_name {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--first-c);
+    height: 100%;
+    line-height: 50px;
+    padding-inline: 30px 25px;
+    border-radius: 30px;
+    font-size: var(--small-font-size);
+    color: var(--text-w);
+    opacity: 0;
+    visibility: hidden;
+    z-index: -1;
+    transition: all 0.5s ease;
+  }
+  .nav_link:hover .nav_name {
+    right: 27px;
+    color: var(--text-w);
+    opacity: 1;
+    visibility: visible;
+    border-radius: 30px 0 0 30px;
+  }
+  .nav_link:hover,
+  .active_nav {
+    background: var(--first-c);
+  }
+  .nav_link:hover .nav_icon,
+  .active_nav .nav_icon {
+    color: var(--text-w);
+  }
+}
